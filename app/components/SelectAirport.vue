@@ -2,8 +2,8 @@
     <div v-if="loading" v-loading="true" class="loading-wrapper"></div>
     <el-row v-else>
         <el-col :md="24" :sm="24" :xs="24">
-            <h1><el-icon><Back /></el-icon> Select Airport</h1>
-            <el-row :gutter="20">
+            <h1 class="app-padding"><el-icon><Back /></el-icon> Select Airport</h1>
+            <el-row :gutter="20" class="app-padding content-border">
                 <el-col :span="24">
                     <NuxtLink :to="{name: 'index'}" class="card select-airport__card">
                         <el-icon :size="40"><Location /></el-icon>
