@@ -1,7 +1,11 @@
 <template>
-    <el-row justify="center">
-        <el-col :md="16" :sm="16" :xs="24">
-            Test
-        </el-col>
-    </el-row>
+    <select-club />
 </template>
+
+<script setup lang="ts">
+import SelectClub from '~/components/SelectClub.vue';
+
+definePageMeta({
+  name: 'select-club'
+})
+</script>

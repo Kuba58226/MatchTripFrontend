@@ -2,9 +2,27 @@
 
 body {
     background-color: $background-primary;
+    color: $text-primary;
+    font-family: $font-primary;
 }
 
 .container {
-    max-width: 1000px;
-    background-color: red;
+    padding: 20px;
+    max-width: 767px;
+}
+
+.card {
+    background-color: $background-secondary;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.card:hover {
+    background-color: $background-secondary-hover;
+}
+.card span {
+    font-weight: 600;
 }
