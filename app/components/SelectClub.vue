@@ -1,7 +1,5 @@
 <template>
-    <el-row v-if="loading" v-loading="true">
-
-    </el-row>
+    <div v-if="loading" v-loading="true" class="loading-wrapper"></div>
     <el-row v-else>
         <el-col :md="24" :sm="24" :xs="24">
             <h1><el-icon><Back /></el-icon> Select Club</h1>
