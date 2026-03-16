@@ -3,15 +3,8 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "~/assets/_colors.scss" as *;',
-        },
-      },
-    },
-  },
+  css: ['~/assets/scss/main.scss'],
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  modules: ['@pinia/nuxt', '@element-plus/nuxt']
 })
