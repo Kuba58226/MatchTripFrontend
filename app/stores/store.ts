@@ -14,6 +14,9 @@ export const useStore = defineStore('store', {
                     this.clubs = response.data;
             })
         },
+        async fetchAirports() {
+            const { get } = useApi()
+        }
     },
 
 })

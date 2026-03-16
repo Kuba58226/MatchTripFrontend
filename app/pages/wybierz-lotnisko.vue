@@ -1,8 +1,10 @@
 <template>
+    <SelectAirport />
 </template>
 
 <script setup lang="ts">
+
 definePageMeta({
-  name: 'index'
+  name: 'select-airport'
 })
 </script>

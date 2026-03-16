@@ -7,22 +7,26 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding: 0 20px;
     max-width: 767px;
 }
 
 .card {
     background-color: $background-secondary;
-    aspect-ratio: 1 / 1;
     border-radius: 12px;
     padding: 16px;
     text-align: center;
     cursor: pointer;
     transition: background 0.2s;
+    text-decoration: none;
+    color: #ffffff;
 }
 .card:hover {
     background-color: $background-secondary-hover;
 }
 .card span {
     font-weight: 600;
+}
+.card img {
+    height: 60%;
 }

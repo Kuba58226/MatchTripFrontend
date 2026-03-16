@@ -4,13 +4,13 @@
     </el-row>
     <el-row v-else>
         <el-col :md="24" :sm="24" :xs="24">
-            <h1>Select Club</h1>
+            <h1><el-icon><Back /></el-icon> Select Club</h1>
             <el-row :gutter="20">
                 <el-col v-for="club in store.clubs" :span="12">
-                    <div class="card">
-                        <img src="#" alt="">
+                    <NuxtLink :to="{name: 'select-airport'}" class="card select-club__card">
+                        <img :src="club.logoUrl" :alt="club.name">
                         <span>{{ club.name }}</span>
-                    </div>
+                    </NuxtLink>
                 </el-col>
             </el-row>
         </el-col>
@@ -18,9 +18,6 @@
 </template>
 
 <script setup lang="ts">
-import { el } from 'element-plus/es/locale/index.mjs';
-
-
 const store = useStore()
 
 const { promise, loading } = useDataLoader([
@@ -28,3 +25,16 @@ const { promise, loading } = useDataLoader([
 ])
 
 </script>
+
+<style lang="scss" scoped>
+.select-club {
+    &__card {
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}
+</style>
