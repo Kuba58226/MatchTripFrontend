@@ -5,6 +5,7 @@ import type { Club } from '~/types/Club'
 export const useStore = defineStore('store', {
     state: () => ({
         clubs: [] as Club[],
+        airports: [] as any[],
     }),
     actions: {
         async fetchClubs() {
@@ -14,8 +15,12 @@ export const useStore = defineStore('store', {
                     this.clubs = response.data;
             })
         },
-        async fetchAirports() {
+        async fetchAirports(clubId: string) {
             const { get } = useApi()
+            await get(`/club/${clubId}/airports`, {})
+                .then((response :any) => {
+                    this.airports = response.data.incomingRoutes.map(route => route.origin)
+            })
         }
     },
 

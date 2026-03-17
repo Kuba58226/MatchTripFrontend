@@ -5,7 +5,7 @@
             <h1 class="app-padding"><el-icon><Back /></el-icon> Wybierz klub</h1>
             <el-row :gutter="20" class="app-padding content-border">
                 <el-col v-for="club in store.clubs" :span="12">
-                    <NuxtLink :to="{name: 'select-airport'}" class="card select-club__card">
+                    <NuxtLink :to="{name: 'select-airport', params: { clubId: club.id } }" class="card select-club__card">
                         <img :src="club.logoUrl" :alt="club.name">
                         <span>{{ club.name }}</span>
                     </NuxtLink>

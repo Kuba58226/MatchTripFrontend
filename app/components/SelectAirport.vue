@@ -5,25 +5,11 @@
             <h1 class="app-padding"><el-icon><Back /></el-icon> Wybierz lotnisko</h1>
             <el-row :gutter="20" class="app-padding content-border">
                 <el-col :span="24">
-                    <NuxtLink :to="{name: 'select-match'}" class="card select-airport__card">
+                    <NuxtLink v-for="airport in store.airports" :to="{name: 'select-match'}" class="card select-airport__card">
                         <el-icon :size="40"><Location /></el-icon>
                         <div class="select-airport__info">
-                            <h2>Katowice</h2>
-                            <h3>KTW</h3>
-                        </div>
-                    </NuxtLink>
-                    <NuxtLink :to="{name: 'select-match'}" class="card select-airport__card">
-                        <el-icon :size="40"><Location /></el-icon>
-                        <div class="select-airport__info">
-                            <h2>Kraków</h2>
-                            <h3>KRK</h3>
-                        </div>
-                    </NuxtLink>
-                    <NuxtLink :to="{name: 'select-match'}" class="card select-airport__card">
-                        <el-icon :size="40"><Location /></el-icon>
-                        <div class="select-airport__info">
-                            <h2>Berlin</h2>
-                            <h3>BRA</h3>
+                            <h2>{{ airport.name }}</h2>
+                            <h3>{{ airport.iataCode }}</h3>
                         </div>
                     </NuxtLink>
                 </el-col>
@@ -34,9 +20,12 @@
 
 <script setup lang="ts">
 const store = useStore()
+const route = useRoute()
+
+const clubId = route.params.clubId as string
 
 const { promise, loading } = useDataLoader([
-  () => store.fetchAirports(),
+  () => store.fetchAirports(clubId),
 ])
 
 </script>
