@@ -6,6 +6,7 @@ export const useStore = defineStore('store', {
     state: () => ({
         clubs: [] as Club[],
         airports: [] as any[],
+        schedules: [] as any[],
     }),
     actions: {
         async fetchClubs() {
@@ -20,6 +21,13 @@ export const useStore = defineStore('store', {
             await get(`/club/${clubId}/airports`, {})
                 .then((response :any) => {
                     this.airports = response.data.incomingRoutes.map(route => route.origin)
+            })
+        },
+        async fetchSchedule(clubId: string) {
+            const { get } = useApi()
+            await get(`/schedules?clubId=${clubId}`, {})
+                .then((response :any) => {
+                    this.schedules = response.data;
             })
         }
     },

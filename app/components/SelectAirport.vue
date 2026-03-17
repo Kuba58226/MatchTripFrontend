@@ -5,7 +5,7 @@
             <h1 class="app-padding"><el-icon><Back /></el-icon> Wybierz lotnisko</h1>
             <el-row :gutter="20" class="app-padding content-border">
                 <el-col :span="24">
-                    <NuxtLink v-for="airport in store.airports" :to="{name: 'select-match'}" class="card select-airport__card">
+                    <NuxtLink v-for="airport in store.airports" :to="{name: 'select-match', params: { clubId: clubId }}" class="card select-airport__card">
                         <el-icon :size="40"><Location /></el-icon>
                         <div class="select-airport__info">
                             <h2>{{ airport.name }}</h2>
